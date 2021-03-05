@@ -61,7 +61,7 @@ def send_Email(message):
     except Exception as e:
         print e
     if response.status_code != 200:
-        print(连接短信接口失败)
+        print('连接短信接口失败')
     else:
         print response.text
 
@@ -78,7 +78,7 @@ def isBlock():
         if lag > 10000:
             send_message(note)
     if message:
-        print(发现堵塞)
+        print('发现堵塞')
         return message
 
 
@@ -120,7 +120,7 @@ if __name__ == '__main__':
     log.addHandler(h)
     now = datetime.datetime.now()
     # restart_time = now + datetime.timedelta(days=1)
-    print '开启任务'
+    print('开启任务')
     scheduler.add_job(monitor, 'interval', hours=1,
                       next_run_time=datetime.datetime.now())
     # scheduler.add_job(monitor, 'interval', minutes=1)
